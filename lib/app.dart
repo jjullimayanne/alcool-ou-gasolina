@@ -10,7 +10,7 @@ class AppFlutter extends StatefulWidget {
 class _AppFlutterState extends State<AppFlutter> {
   TextEditingController _controllerAlcool = TextEditingController();
   TextEditingController _controllerGasolina = TextEditingController();
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,12 +18,14 @@ class _AppFlutterState extends State<AppFlutter> {
         title: Text("Álcool ou Gasolina"),
       ),
       body: Container(
-        padding: EdgeInsets.all(20),
+        
         width: double.infinity,
         decoration:
             BoxDecoration(border: Border.all(width: 3, color: Colors.red)),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+        child: SingleChildScrollView(
+          padding: EdgeInsets.all(20),
+          child:Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Image.asset("images/logo.png"),
             Padding(
@@ -42,7 +44,7 @@ class _AppFlutterState extends State<AppFlutter> {
               decoration:
                   InputDecoration(labelText: "Preço do álcool, ex: 1.59"),
               style: TextStyle(fontSize: 22),
-                controller: _controllerAlcool,
+              controller: _controllerAlcool,
             ),
             TextField(
               keyboardType: TextInputType.number,
@@ -57,11 +59,26 @@ class _AppFlutterState extends State<AppFlutter> {
               padding: EdgeInsets.all(13),
               child: ElevatedButton(
                 onPressed: () {},
-                child: Text("Calcular"),
+                child: Text(
+                  "Calcular",
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
               ),
             ),
+            Padding(
+              padding: EdgeInsets.only(top: 20),
+              child: Text("Result",
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+              ),
+              ),
+              )
           ],
-        ),
+        )
+         ,)
       ),
     );
   }
