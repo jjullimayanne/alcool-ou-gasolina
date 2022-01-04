@@ -8,6 +8,9 @@ class AppFlutter extends StatefulWidget {
 }
 
 class _AppFlutterState extends State<AppFlutter> {
+  TextEditingController _controllerAlcool = TextEditingController();
+  TextEditingController _controllerGasolina = TextEditingController();
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,9 +27,39 @@ class _AppFlutterState extends State<AppFlutter> {
           children: [
             Image.asset("images/logo.png"),
             Padding(
-              padding: EdgeInsets.all(40),
-              child: Text("oi"),
-            )
+              padding: EdgeInsets.all(30),
+              child: Text(
+                "Saiba qual a melhor opção para o abastecimento do seu carro",
+                textAlign: TextAlign.justify,
+                style: TextStyle(
+                    fontSize: 24,
+                    fontStyle: FontStyle.normal,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+            TextField(
+              keyboardType: TextInputType.number,
+              decoration:
+                  InputDecoration(labelText: "Preço do álcool, ex: 1.59"),
+              style: TextStyle(fontSize: 22),
+                controller: _controllerAlcool,
+            ),
+            TextField(
+              keyboardType: TextInputType.number,
+              decoration:
+                  InputDecoration(labelText: "Preço da gasolina, ex: 3.59"),
+              style: TextStyle(
+                fontSize: 22,
+              ),
+              controller: _controllerGasolina,
+            ),
+            Padding(
+              padding: EdgeInsets.all(13),
+              child: ElevatedButton(
+                onPressed: () {},
+                child: Text("Calcular"),
+              ),
+            ),
           ],
         ),
       ),
